@@ -21,9 +21,6 @@ namespace backend.api.Controllers
             _livroRepository = livroRepository;
         }
 
-        [SwaggerResponse(statusCode: 200, description: "Sucesso ao criar livro", Type = typeof(LivroModel))]
-        [SwaggerResponse(statusCode: 400, description: "Campos Obrigatórios", Type = typeof(ValidaCampoModel))]
-        [SwaggerResponse(statusCode: 500, description: "Erro interno", Type = typeof(ErroGenericoModel))]
         [HttpPost]
         [Route("registrar")]
         [ValidacaoModelStateCustomizado]
@@ -43,8 +40,6 @@ namespace backend.api.Controllers
             return Created("", livro);
         }
 
-        [SwaggerResponse(statusCode: 200, description: "Sucesso ao buscar livros", Type = typeof(LivroModel))]
-        [SwaggerResponse(statusCode: 500, description: "Erro interno", Type = typeof(ErroGenericoModel))]
         [HttpGet]
         [Route("listarTodos")]
         public IActionResult BuscarTodosLivros()
